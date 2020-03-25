@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+ 
+ 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Jp | Corona Patient Prediction </title>
+  </head>
+  <body>
+    
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <center><h1 style="color:white;">Corona Patient Prediction</h1></center>
+      </nav>
+
+
+       
+<!------ Include the above in your HEAD tag ---------->
+
+<section class="testimonial py-5" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 py-5 bg-primary text-white text-center ">
+                <div class=" ">
+                    <div class="card-body">
+                        <img src="https://cdn.pixabay.com/photo/2020/02/26/11/47/smilie-4881520_960_720.png" style="width:30%">
+                        <h2 class="py-3">Corona Patient Prediction</h2>
+                        <p>
+                            <b> Programming is my strength.</b><br>
+                            At least a some sort of help from my side to the world. <br>
+                            contact me : jammunaprasadrao@gmail.com<br>
+                            website: <a href="#" style="color: white;">www.devpyjp.com</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 py-5 border">
+                <h4 class="pb-4">Please fill Patient details</h4>
+               
+                <form action='/predict' method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input id="Age" name="age"  placeholder="Enter your Age (Eg: 20)." class="form-control" type="text" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input type="text" class="form-control" id="Fever" placeholder="Enter Fever (Eg: 98)" name='fever' required>
+                        </div>
+                      </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                  
+                            <select id="inputState" class="form-control" name='cold' required>
+                              <option selected>Have you cold..?</option>
+                              <option value='1'> YES</option>
+                              <option value='0'> NO</option>
+                              
+                            </select>
+                         </div>
+
+                        <div class="form-group col-md-6">
+                                  
+                                  <select id="inputState" class="form-control" name='body' required>
+                                    <option selected>Have you Body Pains..?</option>
+                                    <option value='1'> YES</option>
+                                    <option value='0'> NO</option>
+                                  </select>
+                                </div>     
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                  
+                            <select id="inputState" class="form-control" name='breath' required>
+                              <option selected >Have you difficulty when you take breath..?</option>
+                              <option value='1' > YES</option>
+                              <option value='0'> NO</option>
+                              
+                            </select>
+                         </div>
+
+                        
+                    </div>
+                    
+                    
+                    <div class="form-row">
+                        <center><button type="submit" class="btn btn-success">Submit</button></center>
+                    </div>
+
+                </form>
+                <br>
+                {% if prediction %}
+                <h4 style="color:tomato;">Patient Status: <b style="color:rgb(6, 182, 44);">{{prediction}}</b></h4>
+                <h4 style="color:tomato;">Patient Probability score: <b style="color:rgb(6, 182, 44);">{{proba_score}}%</b></h4>
+                {% endif %}
+                {% if message %}
+                <h4 style="color:tomato;">Message: <b style="color:rgb(6, 182, 44);">{{message}}</b></h4>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    img {
+        width:100%;
+    }
+</style>
+
+      <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+          <small>Copyright &copy; Corona Patient Prediction @DevPyJp</small>
+        </div>
+      </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
